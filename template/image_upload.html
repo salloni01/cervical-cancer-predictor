@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Upload Image</title>
+
+<style>
+
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+    background:#f5f9ff;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container{
+
+    width:450px;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    border:2px solid #edc2e5;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+
+    text-align:center;
+}
+
+h2{
+    color:#444;
+    margin-bottom:30px;
+}
+
+input[type="file"]{
+    width:100%;
+    padding:15px;
+    border:2px solid #edc2e5;
+    border-radius:12px;
+    margin-bottom:25px;
+}
+
+/* ✅ BUTTON ROW */
+.btn-group{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+}
+
+/* ✅ COMMON BUTTON STYLE */
+.btn, .back-btn{
+    flex:1;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    text-align:center;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+/* Analyze button */
+.btn{
+    background:#ff6b81;
+    color:white;
+}
+
+.btn:hover{
+    background:#e5506b;
+    transform:scale(1.03);
+}
+
+/* Back button */
+.back-btn{
+    background:#555;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.back-btn:hover{
+    background:#333;
+    transform:scale(1.03);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Upload Medical Image</h2>
+
+    <form method="POST" action="/predict_image" enctype="multipart/form-data">
+
+        <input type="file" name="scan_image" accept="image/*" required>
+
+        <div class="btn-group">
+
+            <button type="submit" class="btn">
+                Analyze Image
+            </button>
+
+            <a href="/choose" class="back-btn">
+                Back
+            </a>
+
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>
