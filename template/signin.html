@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Signin</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='signin.css') }}">
+
+</head>
+
+<body>
+
+<div class="main">
+
+    <header>
+        <h1>Signin</h1>
+    </header>
+
+    {% if error %}
+    <div class="overlay">
+        <div class="error-popup">
+            {{ error }}
+        </div>
+    </div>
+    {% endif %}
+
+    <article>
+
+        <form action="/signin" method="post">
+
+            <table>
+
+                <tr>
+                    <td><label>Email ID:</label></td>
+                    <td>
+                        <input type="email"
+                               name="email"
+                               placeholder="Enter your email ID"
+                               required>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label>Password:</label></td>
+                    <td>
+                        <input type="password"
+                               name="password"
+                               placeholder="Enter your password"
+                               required>
+                    </td>
+                </tr>
+
+            </table>
+
+          <div class="btn-container">
+
+    <button class="btn1" type="submit">
+        Sign In
+    </button>
+
+    <button type="button"
+            class="back-btn"
+            onclick="history.back()">
+        Back
+    </button>
+</div>
+<p class="signup-text">
+    Don't have an account?
+    <a href="{{ url_for('signup') }}">Sign Up</a>
+</p>
+        </form>
+
+    </article>
+
+</div>
+
+</body>
+</html>
