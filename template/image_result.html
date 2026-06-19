@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Image Result</title>
+
+<style>
+
+body{
+
+    margin:0;
+    padding:0;
+
+    font-family:Arial,sans-serif;
+
+    background:#f5f9ff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:100vh;
+}
+
+.container{
+
+    width:520px;
+
+    background:#faf8fa;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    border:2px solid #edc2e5;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+h2{
+
+    color:#222;
+
+    margin-bottom:25px;
+
+    font-size:34px;
+}
+
+img{
+
+    width:100%;
+
+    border-radius:15px;
+
+    border:2px solid #edc2e5;
+
+    margin-bottom:25px;
+}
+
+.result-box{
+
+    background:white;
+
+    border:2px solid #edc2e5;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    margin-bottom:25px;
+}
+
+.risk{
+
+    font-size:32px;
+
+    font-weight:bold;
+
+    color:#ff6b81;
+}
+
+.percent{
+
+    font-size:55px;
+
+    font-weight:bold;
+
+    margin-top:10px;
+
+    color:#444;
+}
+
+.section-title{
+
+    margin-top:25px;
+
+    margin-bottom:15px;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    color:#444;
+}
+
+.advice{
+
+    background:white;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    border:2px solid #edc2e5;
+
+    margin-bottom:12px;
+
+    text-align:left;
+}
+
+.summary{
+
+    background:white;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    border:2px solid #edc2e5;
+
+    margin-bottom:20px;
+
+    line-height:1.6;
+}
+
+.btn{
+
+    display:block;
+
+    width:350px;
+
+    box-sizing:border-box;
+
+    text-align:center;
+
+    margin:18px auto 0 auto;
+
+    padding:12px;
+
+    background:#ff6b81;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:8px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    transition:0.3s;
+
+    border:none;
+
+    outline:none;
+
+    cursor:pointer;
+}
+
+.back-btn{
+    display:block;
+
+    width:350px;
+
+    box-sizing:border-box;
+
+    text-align:center;
+
+    margin:18px auto 0 auto;
+
+    padding:12px;
+    background:#060606;
+    color:white;
+    font-size:16px;
+
+    font-weight:bold;
+
+   
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Medical Image Analysis</h2>
+
+    <img src="{{ url_for('static', filename='uploads/' + image_file) }}">
+
+    <div class="result-box">
+
+        <div class="risk">
+            {{ risk_level }}
+        </div>
+
+        <div class="percent">
+            {{ probability }}%
+        </div>
+
+    </div>
+ <div class="section-title">
+        Recommended Actions
+    </div>
+
+    {% for item in advice %}
+
+    <div class="advice">
+        {{ item }}
+    </div>
+
+    {% endfor %}
+
+
+
+    <a href="/image_upload" class="btn">
+         Upload Another Image
+    </a>
+
+    <button type="button"
+            class="back-btn"
+            onclick="history.back()">
+
+        Back
+
+    </button>
+
+    <a href="/logout" class="btn">
+         Logout
+    </a>
+
+</div>
+
+</body>
+</html>
