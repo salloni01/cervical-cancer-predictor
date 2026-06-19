@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Choose Method</title>
+
+<style>
+
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+    background:#f5f9ff;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.main{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-top:-80px;
+}
+
+.container{
+    width:400px;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    border:2px solid #edc2e5;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #0b0b0b;
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 72px;
+}
+
+p{
+    font-size:40px;
+    color:#555;
+    line-height:2.7;
+    margin-bottom:40px;
+}
+
+.btn {
+    display: block;
+    width: 100%;          
+    box-sizing: border-box;
+    margin-top: 20px;
+    padding: 15px;
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+    text-align: center;
+    color: white;
+}
+
+/* main buttons */
+.btn {
+    background: #ff6b81;
+}
+
+
+
+/* back button */
+.back-button {
+    background: #555;
+    color: white;
+   
+   display: block;
+    width: 100%;          
+    box-sizing: border-box;
+    margin-top: 20px;
+    padding: 15px;
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+    text-align: center;
+    
+}
+
+.back-button:hover {
+    background: #333;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="main">
+
+    <h1>Choose Prediction Method</h1>
+
+    <p class="subtitle">
+        Select a method below to predict cervical cancer risk using either a medical form or image analysis.
+    </p>
+
+    <div class="container">
+
+        <a href="/details" class="btn">
+            Fill Medical Form
+        </a>
+
+        <a href="/image_upload" class="btn">
+            Upload Medical Image
+        </a>
+
+        <button type="button" class="back-button"
+        onclick="window.location.href='/'">
+    Back
+</button>
+    </div>
+
+</div>
+
+</body>
+</html>
