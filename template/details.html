@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Prediction</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='details.css') }}">
+
+</head>
+
+<body class="bg-light">
+
+<div class="container ">
+
+        <h2 class="text-center ">
+            Cervical Cancer Prediction
+        </h2>
+
+        <form action="/predict" method="POST">
+
+            <label>Age</label>
+
+            <input
+                type="number"
+                name="Age"
+              
+                required
+            >
+
+            <label>Number of Sexual Partners</label>
+
+            <input
+                type="number"
+                name="Number_of_sexual_partners"
+            >
+
+            <label>Age at First Sexual Intercourse</label>
+
+            <input
+                type="number"
+                name="First_sexual_intercourse"
+            >
+
+            <label>Do you smoke?</label>
+
+            <select
+                name="Smokes"
+           >
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <label>Smoking Duration (Years)</label>
+
+            <input
+                type="number"
+                name="Smokes_years"
+            >
+
+            <label>Do you use Hormonal Contraceptives?</label>
+
+            <select
+                name="Hormonal_Contraceptives"
+
+            >
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <label>Do you use IUD?</label>
+
+            <select
+                name="IUD"
+                class="form-control mb-3"
+            >
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <label>Any History of STDs?</label>
+
+            <select
+                name="STDs"
+             >
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <label>Number of STDs</label>
+
+            <input
+                type="number"
+                name="STDs_number"
+               
+            >
+
+            <label>Previous Cancer Diagnosis?</label>
+
+            <select
+                name="Dx_Cancer"
+                class="form-control mb-3"
+            >
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <label>Diagnosed with CIN?</label>
+
+            <select
+                name="Dx_CIN"
+           >
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <label>Diagnosed with HPV?</label>
+
+            <select
+                name="Dx_HPV"
+            >
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <button class="btn btn-danger">
+                Predict Risk
+
+            </button>
+
+        </form>
+
+</body>
+</html>
