@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Compare Results</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.container {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+
+.card {
+    background: white;
+    width: 45%;
+    min-width: 300px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border: 2px solid #edc2e5;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #34495e;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.label {
+    color: #555;
+    font-weight: bold;
+}
+
+.value {
+    color: #2c3e50;
+}
+.no-result-box {
+    width: 80%;
+    max-width: 600px;
+    background: #eaf2ff;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    margin: 20px auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border: 2px solid #bcd6ff;
+}
+
+.no-result-box h3 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.no-result-box p {
+    color: #555;
+    font-size: 16px;
+}
+
+.change-box {
+    width: 100%;
+    background: #eaf2ff;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.error {
+    color: red;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+
+.back-btn {
+     display:block;
+
+    width:150px;
+
+    box-sizing:border-box;
+
+    text-align:center;
+    text-decoration: none;
+    margin:18px auto 0 auto;
+
+    padding:12px;
+    background:#060606;
+    color:white;
+    font-size:16px;
+
+    font-weight:bold;
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>Sorry!</h2>
+
+{% if error %}
+
+<div class="no-result-box">
+    <h3>Result Comparison</h3>
+    <p>Not enough result to compare</p>
+    <a href="/result" class="back-btn">Back</a>
+</div>
+
+{% else %}
+
+<div class="container">
+
+    <div class="card">
+        <div class="title">Latest Result</div>
+
+        <div class="row">
+            <span class="label">Risk</span>
+            <span class="value">{{ latest[0] }}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Probability</span>
+            <span class="value">{{ latest[1] }}%</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Date</span>
+            <span class="value">{{ latest[2] }}</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="title">Previous Result</div>
+
+        <div class="row">
+            <span class="label">Risk</span>
+            <span class="value">{{ previous[0] }}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Probability</span>
+            <span class="value">{{ previous[1] }}%</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Date</span>
+            <span class="value">{{ previous[2] }}</span>
+        </div>
+    </div>
+
+    <div class="change-box">
+        <p><b>Risk Change:</b> {{ comparison.risk_change }}</p>
+        <p><b>Probability Change:</b> {{ comparison.prob_change }}%</p>
+    </div>
+
+</div>
+
+{% endif %}
+
+
+</body>
+</html>
