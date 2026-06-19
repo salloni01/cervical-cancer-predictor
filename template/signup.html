@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Signup</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='signup.css') }}">
+
+</head>
+
+<body>
+
+<div class="main">
+
+    <header>
+        <h1>Signup</h1>
+    </header>
+
+    <article>
+
+        <form action="/signup" method="post">
+
+            <table>
+
+                <tr>
+
+                    <td>
+                        <label>Username:</label>
+                    </td>
+
+                    <td>
+
+                        <input type="text"
+                               name="username"
+                               placeholder="Enter username"
+                               required>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+                        <label>Email ID:</label>
+                    </td>
+
+                    <td>
+
+                        <input type="email"
+                               name="email"
+                               placeholder="Enter email"
+                               required>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+                        <label>Password:</label>
+                    </td>
+
+                    <td>
+
+                        <input type="password"
+                               name="password"
+                               placeholder="Enter password"
+                               required>
+
+                    </td>
+
+                </tr>
+
+                
+
+                <tr>
+
+                    <td>
+                        <label>Phone Number:</label>
+                    </td>
+
+                    <td>
+
+                        <input type="text"
+                               name="phone_no"
+                               placeholder="Enter phone number">
+
+                    </td>
+
+                </tr>
+
+               
+
+            </table>
+<div class="btn-container">
+
+    <button class="btn1" type="submit">
+        Sign Up
+    </button>
+
+    <button type="button"
+            class="back-btn"
+            onclick="history.back()">
+
+        Back
+
+    </button>
+
+</div>
+
+        </form>
+
+    </article>
+
+</div>
+
+</body>
+</html>
