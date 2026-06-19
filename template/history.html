@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>History</title>
+    <style>
+    body {
+ font-family: Arial;
+background: #f4f6f8;
+margin: 0;
+padding: 0;
+        }
+.container {
+width: 700px;
+margin: 40px auto;
+background: white;
+ padding: 30px;
+border-radius: 15px;
+border: 2px solid #edc2e5;
+ box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+ h2 {
+text-align: center;
+ margin-bottom: 25px;
+        }
+
+table {
+width: 100%;
+border-collapse: collapse;
+        }
+th, td {
+border: 1px solid #ddd;
+padding: 12px;
+text-align: center;
+        }
+th {
+background: #ff6b81;
+color: white;
+        }
+tr:nth-child(even) {
+background: #faf8fa;
+        }
+.btn {
+display: block;
+width: 200px;
+ margin: 20px auto;
+text-align: center;
+background: #e5506b;
+color: white;
+padding: 10px;
+text-decoration: none;
+ border-radius: 8px;
+        }
+
+
+.back-btn {
+     display:block;
+
+    width:150px;
+
+    box-sizing:border-box;
+
+    text-align:center;
+
+    margin:18px auto 0 auto;
+
+    padding:12px;
+    background:#060606;
+    color:white;
+    font-size:16px;
+
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h2>Previous Prediction Results</h2>
+
+{% if rows %}
+<table>
+<tr>
+<th>Risk Level</th>
+<th>Probability</th>
+<th>Date</th>
+</tr>
+{% for row in rows %}
+ <tr>
+<td>{{ row[0] }}</td>
+<td>{{ row[1] }}%</td>
+<td>{{ row[2] }}</td>
+</tr>
+{% endfor %}
+</table>
+
+{% else %}
+<p style="text-align:center; color:grey;">
+    No history found. Please save a result first!
+</p>
+{% endif %}
+
+            <div class="btn-container">
+                <button type="button"
+                        class="back-btn"
+                        onclick="history.back()">
+                    Back
+                </button>
+            </div>
+</div>
+</body>
+</html>
