@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Result</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Cervical Cancer Risk Assessment</h2>
+    <div class="result-box">
+    <div class="risk-level">
+            {{ risk_level }}
+ </div>
+
+        <div class="risk-percent">
+            {{ prob_percent }}%
+        </div>
+
+        <div class="main-bar-bg">
+            <div class="main-bar-fill" data-score="{{ prob_percent }}"></div>
+        </div>
+
+    </div>
+
+    <div class="section-title">
+         Recommended Actions
+    </div>
+
+    {% for item in advice %}
+    <div class="advice-item">
+        {{ item.text }}
+    </div>
+    {% endfor %}
+
+    <div class="section-title">
+         Contributing Factors
+    </div>
+
+    {% for f in factors %}
+    <div class="factor">
+
+        <div class="factor-top">
+            <span>{{ f.name }}</span>
+            <span>{{ f.contribution }}%</span>
+        </div>
+
+        <div class="factor-bar-bg">
+            <div class="factor-bar-fill" data-score="{{ f.contribution }}"></div>
+        </div>
+
+    </div>
+    {% endfor %}
+
+   
+    <a href="/save_result" class="btn">
+         Save Result
+    </a>
+
+    <a href="/history" class="btn">
+         View History
+    </a>
+
+    <a href="/compare" class="btn">
+         Compare Results
+    </a>
+
+    <a href="/details" class="btn">
+         Assess Another
+    </a>
+<button type="button" class="back-button"
+        onclick="window.location.href='/choose'">
+    Back
+</button>
+    <a href="/logout" class="btn">
+         Logout
+    </a>
+
+</div>
+<script>
+
+document.querySelectorAll(".main-bar-fill").forEach(bar => {
+    let score = parseFloat(bar.getAttribute("data-score"));
+    bar.style.width = score + "%";
+
+    if (score < 30) {
+        bar.style.background = "#2ecc71";
+    } else if (score < 70) {
+        bar.style.background = "#f1c40f";
+    } else {
+        bar.style.background = "#e74c3c";
+    }
+});
+document.querySelectorAll(".factor-bar-fill").forEach(bar => {
+    let score = parseFloat(bar.getAttribute("data-score"));
+    bar.style.width = score + "%";
+
+    if (score < 30) {
+        bar.style.background = "#2ecc71";
+    } else if (score < 70) {
+        bar.style.background = "#f1c40f";
+    } else {
+        bar.style.background = "#e74c3c";
+    }
+});
+
+</script>
+
+</body>
+</html>
